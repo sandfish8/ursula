@@ -20,6 +20,20 @@
       tags: ['always']
   environment: "{{ env_vars|default({}) }}"
 
+- name: RedHat Network registration for RedHat hosts
+  hosts: all
+  roles:
+    - role: rhn-subscription
+      when: ansible_distribution == "RedHat" and openstack_install_method == 'distro'
+
+- name: RedHat Network registration for osd hosts
+  hosts: ceph_osds
+  serial: 1
+  any_errors_fatal: true
+  roles:
+    - role: rhn-subscription-osd
+      when: ansible_distribution == "RedHat" and openstack_install_method == 'distro'
+
 - name: common role for all hosts
   hosts: all:!vyatta-*
   any_errors_fatal: true

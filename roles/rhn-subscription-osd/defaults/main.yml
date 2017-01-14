@@ -1,0 +1,7 @@
+---
+redhat:
+  osd:
+    pool_id:
+      - 8a85f981591dc6ee01591e7ba99e1628
+    repos:
+      - rhel-7-server-rhceph-2-osd-rpms
