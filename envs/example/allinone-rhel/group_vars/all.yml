@@ -7,8 +7,10 @@ validate_certs: false
 percona:
   replication: False
 
+openstack_install_method: distro
+
 redhat:
-  user: XXXXXX
+  user: XXXXXX 
   pass: XXXXXX
 
 common:

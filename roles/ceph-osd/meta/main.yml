@@ -1,3 +1,12 @@
 ---
 dependencies:
+
+  - role: rhn-subscription
+    rhosp_pool: 8a85f981591dc6ee01591e7ba99e1628
+    rhosp_repos:
+      - rhel-7-server-rhceph-2-mon-rpms
+      - rhel-7-server-rhceph-2-tools-rpms
+      - rhel-7-server-rhceph-2-osd-rpms
+    when: ansible_distribution == "RedHat" and openstack_install_method == 'distro'
+
   - role: ceph-common

@@ -5,18 +5,9 @@
     username: "{{ redhat.user }}"
     password: "{{ redhat.pass }}"
 
-- name: Pause for registration
-  pause:
-    seconds: 90
-
-- name: Add OSP pool
-  command: subscription-manager attach --pool={{ item }}
-  with_items:
-  - "{{ redhat.osp.pool_id }}"
-  failed_when: false
+- name: attach to pool
+  command: subscription-manager attach --pool={{ rhosp_pool }}
 
 - name: add OSP repositories
   command: subscription-manager repos --enable={{ item }}
-  with_items:
-  - "{{ redhat.osp.repos }}"
-  failed_when: false
+  with_items: "{{ rhosp_repos }}"
