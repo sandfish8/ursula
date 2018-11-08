@@ -10,6 +10,18 @@
   file: dest=/var/log/magnum state=directory mode=0755 owner=magnum
         group=magnum
 
+# This patches a bug I found in magnum's 'newton-eol' branch, which is what package version '2017.2-bbc281' is based on.
+# Without this, the call to the 'magnum-db-manage' later in this play will crash with a stack trace.
+# The fix is to remove the last method argument in the file referenced by this task, which is shown by the following diff.
+# Diff:
+#   -options.set_defaults(cfg.CONF, _DEFAULT_SQL_CONNECTION, 'magnum.sqlite')
+#   +options.set_defaults(cfg.CONF, _DEFAULT_SQL_CONNECTION)
+- name: patch magnum bug
+  lineinfile:
+    dest: /opt/bbc/openstack-2017.2-bbc281/magnum/local/lib/python2.7/site-packages/magnum/db/__init__.py
+    regexp: ^options.set_defaults
+    line: options.set_defaults(cfg.CONF, _DEFAULT_SQL_CONNECTION)
+
 - name: install magnum service
   upstart_service: name={{ item }} user=magnum cmd=/usr/local/bin/{{ item }}
                    config_dirs=/etc/magnum
