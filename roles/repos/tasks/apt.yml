@@ -11,7 +11,7 @@
   register: result
   until: result|succeeded
   retries: 5
-  tags: apt
+  tags: apt-keys,apt
 
 # things like keyrings may come as packages vs. keys
 - name: add any dependent repository key packages
@@ -25,7 +25,7 @@
   register: result
   until: result|succeeded
   retries: 5
-  tags: apt
+  tags: apt-key-packages,apt
 
 - name: add any dependent repositories
   apt_repository:
@@ -38,4 +38,4 @@
   register: result
   until: result|succeeded
   retries: 5
-  tags: apt
+  tags: apt-repos,apt
