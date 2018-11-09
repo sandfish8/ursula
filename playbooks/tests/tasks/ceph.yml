@@ -78,5 +78,5 @@
       shell: ceph health
       register: results
       until: results.stdout == 'HEALTH_OK'
-      retries: 5
-      delay: 30
+      retries: 10
+      delay: 60
