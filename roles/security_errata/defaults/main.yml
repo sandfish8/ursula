@@ -8,7 +8,7 @@ security:
       - libc6
       - openssh-server
       - openssh-client
-      - ntp
+      - chrony
       - curl
       - libcurl3
       - libcurl3-gnutls
