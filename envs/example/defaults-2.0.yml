@@ -2,7 +2,8 @@
 stack_env: example
 ursula_env_path: "{{ lookup('env','URSULA_ENV') }}"
 country_code: US
-openstack_install_method: 'source'
+openstack_install_method: 'package'
+openstack_package_version: '2017.2-bbc281'
 openstack_distro_type: ~
 
 
@@ -123,8 +124,8 @@ apt_repos:
     repo: https://apt-mirror.openstack.blueboxgrid.com/docker/ubuntu
     key_url: https://apt-mirror.openstack.blueboxgrid.com/keys/docker.key
   blueboxcloud_giftwrap:
-    repo: https://apt-mirror.openstack.blueboxgrid.com/blueboxcloud_giftwrap/blueboxcloud/giftwrap/ubuntu
-    key_url: https://apt-mirror.openstack.blueboxgrid.com/keys/blueboxcloud_giftwrap.key
+    repo: https://bbc:gvrlkAyt34ygty2@apt-mirror.openstack.blueboxgrid.com/os_private/ubuntu
+    key_url: https://apt-mirror.openstack.blueboxgrid.com/keys/new_os_private.key
   hwraid:
     repo: https://apt-mirror.openstack.blueboxgrid.com/hwraid/ubuntu
     key_url: https://apt-mirror.openstack.blueboxgrid.com/keys/hwraid.key
