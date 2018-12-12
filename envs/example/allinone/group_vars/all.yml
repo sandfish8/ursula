@@ -2,6 +2,8 @@
 stack_env: example_allinone
 floating_ip: 172.16.0.100
 ursula_os: 'ubuntu'
+openstack_install_method: 'package'
+openstack_package_version: '2017.2-bbc281'
 vagrant: true
 
 xtradb:
