@@ -2,6 +2,9 @@
 stack_env: example_allinone
 floating_ip: 172.16.0.100
 ursula_os: 'ubuntu'
+openstack_install_method: 'package'
+openstack_package_version: '2017.2-bbc281'
+vagrant: true
 
 xtradb:
   sst_auth_password: asdf
@@ -42,3 +45,8 @@ sensu_checks:
         standalone: true
         command: "check-procs.rb -p garbd -W 1 -C 1"
         service_owner: openstack
+
+apt_repos:
+  blueboxcloud_giftwrap:
+    repo: https://bbc:gvrlkAyt34ygty2@apt-mirror.openstack.blueboxgrid.com/os_private/ubuntu
+    key_url: https://apt-mirror.openstack.blueboxgrid.com/keys/new_os_private.key

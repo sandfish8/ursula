@@ -18,13 +18,13 @@ require 'yaml'
 
 SETTINGS = YAML.load_file SETTINGS_FILE
 
-BOX_NAME = ENV['URSULA_BOX_NAME'] || SETTINGS['default']['box'] || 'ubuntu-trusty'
-BOX_URL = ENV['URSULA_BOX_URL'] || SETTINGS['default']['box_url'] || 'http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box'
+BOX_NAME = ENV['URSULA_BOX_NAME'] || SETTINGS['default']['box'] || 'ubuntu/trusty64'
+#BOX_URL = ENV['URSULA_BOX_URL'] || SETTINGS['default']['box_url'] || 'http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = BOX_NAME
-  config.vm.box_url = BOX_URL
+#  config.vm.box_url = BOX_URL
   config.vm.provider "virtualbox" do |v|
     v.memory = SETTINGS['default']['memory']
     v.cpus = SETTINGS['default']['cpus']
