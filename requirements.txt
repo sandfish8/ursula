@@ -10,3 +10,4 @@ python-neutronclient
 python-keystoneclient
 python-openstackclient
 -e git://github.com/blueboxgroup/ursula-cli.git@master#egg=ursula-cli
+PyYAML==4.2b4
